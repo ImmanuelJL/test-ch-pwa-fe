@@ -4,9 +4,9 @@
      <h1> Total Order Menu : </h1>
    </header>
    <div class="list">
-     <ul v-for="data in dataTransaction" style="list-style: none">
-         <li>
-            {{ data.sqlSumTrx }}
+     <ul class="list-group" v-for="data in dataTransaction" style="list-style: none">
+         <li class="list-group-item">
+            {{ data.sqlSumTrx }} Menu
         </li>
      </ul>
    </div>
@@ -15,8 +15,8 @@
      <h1> Total Income Per-Restaurant : </h1>
    </header>
    <div class="list">
-     <ul v-for="data in dataPerRestaurant" style="list-style: none">
-         <li>
+     <ul class="list-group" v-for="data in dataPerRestaurant" style="list-style: none">
+         <li class="list-group-item">
             {{ data.name }} - IDR {{ data.sqlSumTrxPerRestaurant }}
         </li>
      </ul>
@@ -26,8 +26,8 @@
      <h1> Most Order Menu : </h1>
    </header>
    <div class="list">
-     <ul v-for="data in dataMenu" style="list-style: none">
-         <li>
+     <ul class="list-group" v-for="data in dataMenu" style="list-style: none">
+         <li class="list-group-item">
             {{ data.name }} - {{ data.sqlSumTrxDetail }}
         </li>
      </ul>

@@ -4,9 +4,9 @@
      <h1> Update Order : </h1>
    </header>
     <form @submit.prevent="submitForm">
-      <div>
-        <label for="id">Status:</label><br>
-        <select v-model="status">
+      <div class="mb-3">
+        <label class="form-label">Status</label>
+        <select class="form-control" v-model="status">
           <option selected value="">Choose</option>
           <option selected value="new">New</option>
           <option selected value="process">Process</option>
@@ -14,9 +14,9 @@
           <option selected value="cancel">Cancel</option>
         </select>
       </div>
-      <div>
-        <label for="id">Remark:</label><br>
-        <textarea v-model="remark" />
+      <div class="mb-3">
+        <label class="form-label">Remark</label>
+        <textarea class="form-control" v-model="remark" />
       </div>
       <button :class="activeClass" type="submit">Submit</button>
     </form>
@@ -32,7 +32,7 @@ export default {
       trxHeaderId: 0,
       status: "",
       remark: "",
-      activeClass: 'active'
+      activeClass: 'btn btn-primary'
     }
   },
   async mounted() {
@@ -52,7 +52,7 @@ export default {
   methods: {
     submitForm() {
       let self = this;
-      
+
       axios.put('http://127.0.0.1:8081/api/v1/order', {
         trxHeaderId: this.trxHeaderId,
         status: this.status,

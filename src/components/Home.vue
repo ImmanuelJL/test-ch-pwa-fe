@@ -1,27 +1,35 @@
 <template>
   <div id="app">
+    <header>
+     <h1> Form Order : </h1>
+    </header>
     <form @submit.prevent="submitForm">
-      <div>
-        <select v-model="restaurantId">
+      <div class="mb-3">
+        <label class="form-label">Restaurant</label>
+        <select class="form-control" v-model="restaurantId">
           <option selected value="">Choose</option>
           <option v-for="result in resultsRestaurantId" :value="result.id">{{ result.name }}</option>
         </select>
       </div>
-      <div>
-        <select v-model="patientId">
+      <div class="mb-3">
+        <label class="form-label">Patient</label>
+        <select class="form-control" v-model="patientId">
           <option selected value="">Choose</option>
           <option v-for="result in resultsPatientId" :value="result.id">{{ result.nama_pasien }}</option>
         </select>
       </div>
-      <div>
-        <select v-model="menuId">
+      <div class="mb-3">
+        <label class="form-label">Menu</label>
+        <select class="form-control" v-model="menuId">
           <option selected value="">Choose</option>
           <option v-for="result in resultsMenuId" :value="result.id">{{ result.name }}</option>
         </select>
       </div>
-      <button :class="activeClass" type="submit">Order</button>
-      <div>
-        <h3>Data retrieved from server:</h3>
+      <div class="mb-3">
+        <button :class="activeClass" type="submit">Order</button>
+      </div>
+      <div class="mb-3">
+        <h5>Data retrieved from server:</h5>
         <p v-if="success"> {{ success }}</p>
         <pre>{{ response }}</pre>
       </div>
@@ -44,7 +52,7 @@ export default {
       detailOrder: [],
       response: '',
       success: '',
-      activeClass: 'active'
+      activeClass: 'btn btn-primary'
     }
   },
   async mounted() {
@@ -74,7 +82,7 @@ export default {
       }
 
       arrDetailOrder.push(tempDetailOrder)
-      
+
       this.detailOrder = arrDetailOrder
 
       axios.post('http://127.0.0.1:8081/api/v1/order', {
@@ -100,9 +108,10 @@ export default {
         console.log(error)
         this.response = 'Error: ' + error.response
       })
-      this.restaurantId = 1;
-      this.patientId = 1;
-      this.detailOrder = [];
+
+      this.restaurantId = ""
+      this.patientId = ""
+      this.menuId = ""
     }
   }
 }

@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import VueRouter from 'vue-router'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Home from "@/components/Home"
 import Admin from "@/components/Admin"
 import AdminUpdate from "@/components/AdminUpdate"
@@ -13,6 +16,8 @@ import AdminOfficeDashboard from "@/components/AdminOfficeDashboard"
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
 const routes = [
     {
@@ -37,7 +42,7 @@ const routes = [
     },
     {
       path: "/admin-office-add",
-      name: "AdminOfficeUpdate",
+      name: "AdminOfficeAdd",
       component: AdminOfficeAdd
     },
     {

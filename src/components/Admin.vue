@@ -4,12 +4,12 @@
      <h1> List Order : </h1>
    </header>
    <div class="list">
-     <ul v-for="order in orders" :key="order.id" style="list-style: none">
-         <li>
+     <ul class="list-group" v-for="order in orders" :key="order.id" style="list-style: none">
+         <li class="list-group-item">
             <router-link :to="{ name: 'AdminUpdate', params: { id: order.id } }">
               Status: {{ order.status }} - Order ID: {{ order.id }}<br>
-              Remark: {{ order.remark }}
             </router-link>
+            Remark: {{ order.remark }}
         </li>
      </ul>
    </div>

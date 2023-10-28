@@ -3,12 +3,12 @@
    <header>
      <h1> List Restaurant : </h1>
    </header>
-   <div>
-     <button type="button" @click="addRestaurant">Add</button>
+   <div class="mb-3">
+     <button class="btn btn-primary" type="button" @click="addRestaurant">Add</button>
    </div>
    <div class="list">
-     <ul v-for="restaurant in restaurants" :key="restaurant.id" style="list-style: none">
-         <li>
+     <ul class="list-group" v-for="restaurant in restaurants" :key="restaurant.id" style="list-style: none">
+         <li class="list-group-item">
             <router-link :to="{ name: 'AdminOfficeUpdate', params: { id: restaurant.id } }">
               Name: {{ restaurant.name }} - {{ restaurant.status }}
             </router-link>

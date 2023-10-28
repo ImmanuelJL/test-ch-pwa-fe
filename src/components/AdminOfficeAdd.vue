@@ -4,17 +4,17 @@
      <h1> Add Order : </h1>
    </header>
     <form @submit.prevent="submitForm">
-      <div>
-        <label for="id">Status:</label><br>
-        <select v-model="status">
+      <div class="mb-3">
+        <label class="form-label">Status</label>
+        <select class="form-control" v-model="status">
           <option selected value="">Choose</option>
           <option selected value="active">Active</option>
           <option selected value="inactive">In-Active</option>
         </select>
       </div>
-      <div>
-        <label for="id">Name:</label><br>
-        <input id="name" type="name" v-model="name" required/>
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <textarea class="form-control" v-model="name" />
       </div>
       <button :class="activeClass" type="submit">Submit</button>
     </form>
@@ -29,7 +29,7 @@ export default {
     return {
       status: "",
       name: "",
-      activeClass: 'active'
+      activeClass: 'btn btn-primary'
     }
   },
   async mounted() {
